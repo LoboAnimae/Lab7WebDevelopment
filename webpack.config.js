@@ -3,13 +3,20 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 use: ["babel-loader", "eslint-loader"]
             }
         ]
     },
     devServer: {
-        overlay: true,
-        port: 3000
+        contentBase: 'dist', 
+        port: 3000,
+        overlay: true
+    },
+    resolve:{
+        extensions: [
+            '.js', 
+            '.jsx'
+        ]
     }
 }
