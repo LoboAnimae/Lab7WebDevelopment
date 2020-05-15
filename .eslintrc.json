@@ -26,6 +26,8 @@
         "linebreak-style": ["error", "windows"],
         "react/jsx-filename-extension": [0],
         "import/extensions": "off",
-        "space-infix-ops": [0]
+        "space-infix-ops": [0],
+        "no-alert": [0]
+        
     }
 }
