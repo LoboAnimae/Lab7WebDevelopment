@@ -1,12 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Main</title>
-</head>
-<body>
-    <div id="root"></div>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        overflow: show;
+        left: 0;
+        top: 0;
+      }
+
+      #root {
+        background-image: url('./images/Background.png');
+        width: fit-content;
+      }
+
+      .initialPrompt {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        left: 0;
+        top: 0;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #title {
+        font-size: xxx-large;
+        width: 100%;
+        text-align: center;
+      }
+
+      #instructions {
+        font-size: xx-large;
+        width: 100%;
+        text-align: center;
+      }
+
+      #button {
+        font-size: x-large;
+        border: double;
+        width: 25%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      #title,
+      #instructions,
+      #button {
+        font-family: 'VT323', monospace;
+        margin: 10px;
+      }
+
+      .notMine {
+        font-size: small;
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        margin: 10px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="initialPrompt" id="menu">
+      <div id="title">Find your Trainer!</div>
+      <div id="instructions">You lost your trainer in the cave. Find him!</div>
+      <div id="button">Start!</div>
+      <div id="image"><img src="./images/gifs/menuGIF.gif" alt="" /></div>
+      <div id="instructions">clickme!</div>
+      <audio id="arcanineAudio">
+        <source src="./images/Source/arcanine.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+    <div class="notMine" id="notMineID">
+      Sprites and sounds taken from Pokemon: Heartgold Edition. Backgrounds
+      sprites made by myself.
+    </div>
+    <div tabindex="0" id="root"></div>
     <script src="main.js"></script>
-</body>
+    <script>
+      buttonStart = document.getElementById('button')
+
+      buttonStart.addEventListener('click', () => {
+        menu = document.getElementById('menu')
+        notMine = document.getElementById('notMineID')
+        menu.parentNode.removeChild(menu)
+        notMine.parentNode.removeChild(notMine)
+      })
+
+      gifSound = document.getElementById('image')
+
+      gifSound.addEventListener('click', () => {
+        document.getElementById('arcanineAudio').play()
+        setTimeout(2, () => {
+          document.getElementById('arcanineAudio').stop()
+        })
+      })
+
+      
+    </script>
+  </body>
 </html>
